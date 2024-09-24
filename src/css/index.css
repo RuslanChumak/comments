@@ -1,0 +1,18 @@
+.empty-placeholder {
+  font-size: 15px;
+  font-style: italic;
+}
+
+.comment-actions {
+  display: flex;
+  align-items: center;
+}
+
+.field {
+  width: 100%;
+}
+
+.add-comment-form {
+  display: flex;
+  flex-wrap: nowrap;
+}

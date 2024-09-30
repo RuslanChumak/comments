@@ -12,6 +12,13 @@ export const AddCommentForm: React.FC = () => {
     dispatch(addComment(value))
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.nativeEvent.code === 'Enter') {
+      e.preventDefault();
+      handleAdd();
+    }
+  }
+
   return (
     <div className="add-comment-form">
       <TextField
@@ -20,7 +27,7 @@ export const AddCommentForm: React.FC = () => {
         placeholder="Type here..."
         maxRows={4}
         value={value}
-        onKeyDown={(e) => e.nativeEvent.code === 'Enter' && handleAdd()}
+        onKeyDown={handleKeyDown}
         onChange={({ target: { value } }) => dispatch(changeNewCommentValue(value))}
       />
       <Button id="add-button" onClick={handleAdd}>Add</Button>

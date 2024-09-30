@@ -27,6 +27,7 @@ export const commentsSlice = createSlice({
   initialState: {
     byId: {} as { [commentId: string]: Comment },
     newCommentValue: '',
+    page: 1
   },
   reducers: {
     findComments: (state, action: PayloadAction<Result<Comment>>) => {
@@ -66,10 +67,13 @@ export const commentsSlice = createSlice({
     },
     changeNewCommentValue: (state, action: PayloadAction<string>) => {
       state.newCommentValue = action.payload
+    },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload
     }
   }
 })
 
-export const { findComments, likeComment, deleteComment, changeNewCommentValue, addComment } = commentsSlice.actions
+export const { findComments, likeComment, deleteComment, changeNewCommentValue, addComment, setPage } = commentsSlice.actions
 
 export default commentsSlice.reducer
